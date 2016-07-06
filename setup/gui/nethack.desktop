@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=NetHack
+Comment=The famous nethack game
+Icon=${SNAP}/meta/gui/icon.png
+Exec=nethack
+Terminal=true
+Categories=Games;

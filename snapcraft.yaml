@@ -1,0 +1,30 @@
+name: nethack
+version: 3.4.2-2
+summary: The popular nethack console adventure
+description: Play the nethack cli version
+confinement: strict
+
+apps:
+    nethack:
+      command: ./nethack.sh
+      plugs: [home]
+
+parts:
+  nethack:
+    source: ./
+    plugin: make
+    build-packages:
+      - wget
+      - tar
+      - gzip
+      - sharutils
+      - libncurses5-dev
+      - groff-base
+      - bison
+      - flex
+      - bsdmainutils
+    stage-packages:
+      - libncurses5
+      - libc-bin
+      - console-setup-linux
+      - locales
