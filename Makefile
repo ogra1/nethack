@@ -3,8 +3,8 @@ all: build
 build:
 	wget http://downloads.sourceforge.net/project/nethack/nethack/3.4.2/nethack-342.tgz
 	tar xf nethack-342.tgz
-	ln -s /usr/bin/gcc-5 /usr/bin/gcc
-	ln -s /usr/bin/gcc-5 /usr/bin/cc
+	([ -e /usr/bin/cc ] || ln -s /usr/bin/gcc-5 /usr/bin/cc)
+	([ -e /usr/bin/gcc ] || ln -s /usr/bin/gcc-5 /usr/bin/gcc)
 	(cd nethack-3.4.2; /bin/sh sys/unix/setup.sh)
 	(cd nethack-3.4.2; patch -p0 <../nethack.patch; make all)
 
