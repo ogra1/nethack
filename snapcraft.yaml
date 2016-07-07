@@ -17,7 +17,7 @@ parts:
       - bison
       - bsdmainutils
       - flex
-      - gcc-5
+      - gcc
       - groff-base
       - gzip
       - libncurses5-dev
