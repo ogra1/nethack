@@ -14,15 +14,17 @@ parts:
     source: ./
     plugin: make
     build-packages:
-      - wget
-      - tar
-      - gzip
-      - sharutils
-      - libncurses5-dev
-      - groff-base
       - bison
-      - flex
       - bsdmainutils
+      - flex
+      - gcc-5
+      - groff-base
+      - gzip
+      - libncurses5-dev
+      - patch
+      - sharutils
+      - tar
+      - wget
     stage-packages:
       - libncurses5
       - libc-bin
