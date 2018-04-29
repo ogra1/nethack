@@ -1,8 +1,9 @@
 name: nethack
-version: 3.4.2-2
+version: 3.6.1-0
 summary: The popular nethack console adventure
 description: Play the nethack cli version
 confinement: strict
+grade: stable
 
 apps:
     nethack:
@@ -11,8 +12,17 @@ apps:
 
 parts:
   nethack:
-    source: ./
+    source: https://github.com/NetHack/NetHack.git
+    source-branch: NetHack-3.6.0
     plugin: make
+    override-build: |
+      cd sys/unix
+      sed -i 's/^PREFIX=.*/PREFIX=$(SNAPCRAFT_PART_INSTALL)/' hints/linux
+      ./setup.sh hints/linux
+      cd ../../
+      # git apply ../../../nethack-git.patch
+      snapcraftctl build
+      cp ../../../nethack.sh $SNAPCRAFT_PART_INSTALL/
     build-packages:
       - bison
       - bsdmainutils

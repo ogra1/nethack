@@ -1,5 +1,6 @@
 #! /bin/sh
 
+export PATH="$PATH:$SNAP/games/lib/nethackdir"
 export HOME=$SNAP_USER_DATA
 export HACKDIR=$SNAP_USER_DATA
 export NETHACKOPTIONS=$SNAP_USER_DATA/.nethackrc
@@ -33,10 +34,17 @@ OPTIONS=DECgraphics
 EOF
 fi
 
-[ -e $SNAP_USER_DATA/nhdat ] || cp $SNAP/nhdat $SNAP_USER_DATA/
+export LEVELDIR=$SNAP_USER_DATA/levels
+export SAVEDIR=$SNAP_USER_DATA/save
+export BONESDIR=$SNAP_USER_DATA/save
+export LOCKDIR=$SNAP_USER_DATA/levels
+
+[ -e $SNAP_USER_DATA/nhdat ] || cp $SNAP/games/lib/nethackdir/nhdat $SNAP_USER_DATA/
+[ -e $SNAP_USER_DATA/symbols ] || cp $SNAP/games/lib/nethackdir/symbols $SNAP_USER_DATA/
 [ -e $SNAP_USER_DATA/perm ] || touch $SNAP_USER_DATA/perm
 [ -e $SNAP_USER_DATA/save ] || mkdir $SNAP_USER_DATA/save
+[ -e $SNAP_USER_DATA/levels ] || mkdir $SNAP_USER_DATA/levels
 
 cd $SNAP_USER_DATA
 
-$SNAP/nethack -d . "$@"
+$SNAP/games/lib/nethackdir/nethack -d . "$@"
