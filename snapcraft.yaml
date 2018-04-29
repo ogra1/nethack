@@ -18,9 +18,9 @@ parts:
     override-build: |
       cd sys/unix
       sed -i 's/^PREFIX=.*/PREFIX=$(SNAPCRAFT_PART_INSTALL)/' hints/linux
+      sed -i 's/^CFLAGS+=-DSYSCF.*/CFLAGS+=-DSECURE/' hints/linux
       ./setup.sh hints/linux
       cd ../../
-      # git apply ../../../nethack-git.patch
       snapcraftctl build
       cp ../../../nethack.sh $SNAPCRAFT_PART_INSTALL/
     build-packages:
