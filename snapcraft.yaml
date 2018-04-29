@@ -27,7 +27,6 @@ parts:
     build-packages:
       - bison
       - bsdmainutils
-      - binutils
       - flex
       - gcc
       - groff-base
@@ -38,6 +37,7 @@ parts:
       - tar
       - wget
     stage-packages:
+      - binutils
       - libncurses5
       - libc-bin
       - console-setup-linux
