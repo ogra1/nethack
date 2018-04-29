@@ -1,5 +1,5 @@
 name: nethack
-version: 3.6.1-0
+version: 3.6.2
 summary: The popular nethack console adventure
 description: Play the nethack cli version
 confinement: strict
