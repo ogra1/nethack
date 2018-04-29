@@ -27,6 +27,7 @@ parts:
     build-packages:
       - bison
       - bsdmainutils
+      - binutils
       - flex
       - gcc
       - groff-base
