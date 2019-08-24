@@ -13,7 +13,7 @@ apps:
 parts:
   nethack:
     source: https://github.com/NetHack/NetHack.git
-    source-branch: NetHack-3.6.0
+    source-branch: NetHack-3.6.2
     plugin: make
     override-build: |
       sed -i 's/^#ifndef SYSCF/#ifdef SYSCF/' include/config.h
