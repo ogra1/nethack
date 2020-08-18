@@ -24,7 +24,7 @@ parts:
       ./setup.sh hints/linux
       cd ../../
       snapcraftctl build
-      cp ../../../project/nethack.sh $SNAPCRAFT_PART_INSTALL/
+      cp $SNAPCRAFT_PROJECT_DIR/nethack.sh $SNAPCRAFT_PART_INSTALL/
     build-packages:
       - bison
       - bsdmainutils
